@@ -93,7 +93,7 @@ struct qdma_mbox {
 
 };
 
-#define QDMA_MBOX_MSG_TIMEOUT_MS	10000 /* 10 sec*/
+#define QDMA_MBOX_MSG_TIMEOUT_MS	60000 /* 60 sec*/
 /*****************************************************************************/
 /**
  * qdma_mbox_init() - initialize qdma mailbox

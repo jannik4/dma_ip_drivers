@@ -391,7 +391,7 @@ static ssize_t cdev_gen_read_write(struct file *file, char __user *buf,
 	req->udd_len = 0;
 	req->ep_addr = (u64)*pos;
 	req->count = count;
-	req->timeout_ms = 10 * 1000;	/* 10 seconds */
+	req->timeout_ms = 60 * 1000;	/* 60 seconds */
 	req->fp_done = NULL;		/* blocking */
 	req->h2c_eot = 1;		/* set to 1 for STM tests */
 
@@ -468,7 +468,7 @@ static ssize_t cdev_aio_write(struct kiocb *iocb, const struct iovec *io,
 		pos += io[i].iov_len;
 		caio->reqv[i]->no_memcpy = xcdev->no_memcpy ? 1 : 0;
 		caio->reqv[i]->count = io->iov_len;
-		caio->reqv[i]->timeout_ms = 10 * 1000;	/* 10 seconds */
+		caio->reqv[i]->timeout_ms = 60 * 1000;	/* 60 seconds */
 		caio->reqv[i]->fp_done = qdma_req_completed;
 
 	}
@@ -543,7 +543,7 @@ static ssize_t cdev_aio_read(struct kiocb *iocb, const struct iovec *io,
 		pos += io[i].iov_len;
 		caio->reqv[i]->no_memcpy = xcdev->no_memcpy ? 1 : 0;
 		caio->reqv[i]->count = io->iov_len;
-		caio->reqv[i]->timeout_ms = 10 * 1000;	/* 10 seconds */
+		caio->reqv[i]->timeout_ms = 60 * 1000;	/* 60 seconds */
 		caio->reqv[i]->fp_done = qdma_req_completed;
 	}
 	if (i > 0) {
