@@ -468,6 +468,8 @@ static const struct pci_device_id pci_ids[] = {
 	{ PCI_DEVICE(0x10ee, 0xb358), },	/** PF 3 */
 #endif
 
+	{ PCI_DEVICE(0x10ee, 0x50b5), },        /** V80 */
+
 	{0,}
 };
 
